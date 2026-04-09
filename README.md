@@ -1,16 +1,44 @@
-# React + Vite
+# Finance Control — React
+Sistema web de controle financeiro pessoal construído com React. Versão reimaginada do [Finance Control Vanilla JS](https://github.com/vendelxz/finance.control), mantendo o mesmo backend em Java Spring Boot.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> ⚠️ Em desenvolvimento — estrutura base configurada
 
-Currently, two official plugins are available:
+## Funcionalidades 
+- [ ] Autenticação com JWT
+- [ ] Cadastro de receitas e despesas
+- [ ] Balanceamento mensal
+- [ ] Envio de e-mails via SMTP
+- [ ] Recuperação de senha
+- [ ] Geração de relatórios em PDF
+- [ ] Dark mode
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
+| Camada | Tecnologia |
+|---|---|
+| Frontend | React, React Router DOM |
+| Backend | Java, Spring Boot |
+| Segurança | JWT, BCrypt |
+| Banco de dados | PostgreSQL (Neon) |
+| Infraestrutura | Docker, AWS EC2 |
 
-## React Compiler
+## Estrutura
+```
+src/
+├── assets/
+├── components/
+├── hooks/
+├── pages/
+│   ├── home/
+│   └── login/
+├── services/
+├── index.css
+└── main.jsx
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Repositórios
+- ⚛️ Frontend (React) — *este repositório*
+- 🖥️ Frontend (Vanilla JS) — [finance.control](https://github.com/vendelxz/finance.control)
+- ⚙️ Backend — [api-controle-financeiro](https://github.com/vendelxz/api-controle-financeiro)
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Autor
+Feito por [vendelxz](https://github.com/vendelxz)
