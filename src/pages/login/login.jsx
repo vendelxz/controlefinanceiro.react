@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ApiRequest } from "../../service/api";
 import "./login.css";
 
@@ -56,6 +57,10 @@ const Login = () => {
 
             <button type="submit" className="btn-primario">Entrar na conta</button>
         </form>
+            <div className="links-uteis">
+              <Link to="/auth/solicitar">Esqueceu sua senha?</Link>
+              <Link to="/auth/registro">Não tem uma conta? Cadastre-se</Link>
+            </div>
     </div>
 );
 };
