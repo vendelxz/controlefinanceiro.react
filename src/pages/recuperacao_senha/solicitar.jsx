@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./solicitar.css";
 
 function Solicitar() {
@@ -21,7 +22,7 @@ return(
             >Enviar</button>
         </form>
          <div className="links-uteis">
-                <a href="/auth/login">Faça login aqui</a>
+                <Link to="/auth/login">Faça login aqui</Link>
             </div>
     </div>
 )

@@ -8,14 +8,17 @@ import './pages/recuperacao_senha/solicitar.css'
 import Home from '../src/pages/home/Home.jsx'
 import Login from '../src/pages/login/login.jsx'
 import Solicitar from '../src/pages/recuperacao_senha/solicitar.jsx'
+import {MainLayout} from './components/MainLayout'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/solicitar" element={<Solicitar />} />
+        <Route path="/" element={<MainLayout />}>
+          <Route path="home" element={<Home />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </StrictMode>,
