@@ -1,4 +1,8 @@
+
+
+
 //Basicamente posso utilizar o mesmo arquivo para cuidar das requisições
+//Com alguma adições do useNavigate ao invés do window...
 const API_CONFIG = {
     BASE_URL: import.meta.env.VITE_URL_BASE,
     TOKEN_KEY: 'token'
@@ -31,12 +35,12 @@ const API_CONFIG = {
         const resposta = await fetch(`${API_CONFIG.BASE_URL}${endpoint}`, config);
 
         if (resposta.status === 401 || resposta.status === 403) {
-            const isAuthPage = window.location.pathname.includes('login.html') || 
-                               window.location.pathname.includes('registro.html');
+            const isAuthPage = window.location.pathname.includes('login.jsx') || 
+                               window.location.pathname.includes('registro.jsx');
             
             if (!isAuthPage) {
                 localStorage.removeItem(API_CONFIG.TOKEN_KEY);
-                window.location.replace('../auth/login.html');
+                window.location.href = 'auth/login'; 
                 return;
             }
         }
