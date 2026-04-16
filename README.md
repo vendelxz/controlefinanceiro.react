@@ -28,8 +28,6 @@ src/
 ├── components/
 ├── hooks/
 ├── pages/
-│   ├── home/
-│   └── login/
 ├── services/
 ├── index.css
 └── main.jsx
