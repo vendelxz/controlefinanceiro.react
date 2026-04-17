@@ -5,13 +5,13 @@
 
 export const logout = () => {
 
-const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
 
-if(token === null){
-    return;
-}
+    if (token === null) {
+        return;
+    }
 
-localStorage.removeItem(token);
-window.location.href('/auth/login');
+    localStorage.removeItem(token);
+    window.location.href('/auth/login');
 
 }
