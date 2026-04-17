@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import './css/Sidebar.css'; 
+import { logout } from '../service/authService';
 
 export function Sidebar() {
   return (
@@ -38,7 +39,7 @@ export function Sidebar() {
       </nav>
 
       <div className="sidebar-footer">
-        <button className="nav-btn btn-sair">SAIR</button>
+        <button className="nav-btn btn-sair" onClick={logout}>SAIR</button>
       </div>
     </aside>
   );

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { ApiRequest } from "../../service/api";
 import "./login.css";
+import api from "../../service/api";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -14,16 +14,23 @@ const Login = () => {
         event.preventDefault(); 
         
         try {
-            const resposta = await ApiRequest('/auth/login', {
-                method: 'POST',
-                body: JSON.stringify({ email, password })
-            });
+            const resposta = await api.post('/auth/login', {email, password});
 
             localStorage.setItem('token', resposta.token);
             navigate('/home');
 
         } catch (erro) {
-            setErros({ geral: "Ocorreu um erro ao tentar fazer login." });
+            const status = erro.response?.status;
+
+            if(status === 400){
+                setErros({dados: "E-mail ou senha incorretos."});
+            }
+            else if(status === 500){
+                setErros({servidor: "Erro interno de servidor."});
+            }
+            else{
+                setErros({geral: "Erro ao processar login - Contate o suporte"})
+            }
         }
     };
 
@@ -39,7 +46,7 @@ const Login = () => {
                 <label className="form-label">E-mail</label>
                 <input 
                     type="email" 
-                    placeholder="exemplo@email.com"
+                    placeholder="Seu email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)} 
                 />

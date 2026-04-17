@@ -1,53 +1,32 @@
+import axios from 'axios';
 
+const api = axios.create({
+    baseURL: import.meta.env.VITE_URL_BASE,
+});
 
-
-//Basicamente posso utilizar o mesmo arquivo para cuidar das requisições
-//Com alguma adições do useNavigate ao invés do window...
-const API_CONFIG = {
-    BASE_URL: import.meta.env.VITE_URL_BASE,
-    TOKEN_KEY: 'token'
-};
-
-/**
- * 
- * @param {string} endpoint 
- * @param {object} options  
- */
-
- export async function ApiRequest(endpoint, options = {}) {
-    const token = localStorage.getItem(API_CONFIG.TOKEN_KEY);
-    
-    const headers = {
-        'Content-Type': 'application/json',
-        ...options.headers
-    };
-
+api.interceptors.request.use((config) => {
+    const token = localStorage.getItem('token');
     if (token && token !== 'null') {
-        headers['Authorization'] = `Bearer ${token}`;
+        config.headers.Authorization = `Bearer ${token}`;
     }
+    return config;
+});
 
-    const config = {
-        ...options,
-        headers
-    };
+api.interceptors.response.use(
+    (resposta) => resposta,
+    (erro) => {
+        const status = erro.response?.status;
+        const isAuthPage = ['/login', '/registro'].some(p =>
+            window.location.pathname.includes(p)
+        );
 
-    try {
-        const resposta = await fetch(`${API_CONFIG.BASE_URL}${endpoint}`, config);
-
-        if (resposta.status === 401 || resposta.status === 403) {
-            const isAuthPage = window.location.pathname.includes('login.jsx') || 
-                               window.location.pathname.includes('registro.jsx');
-            
-            if (!isAuthPage) {
-                localStorage.removeItem(API_CONFIG.TOKEN_KEY);
-                window.location.href = 'auth/login'; 
-                return;
-            }
+        if ((status === 401 || status === 403) && !isAuthPage) {
+            localStorage.removeItem('token');
+            window.location.href = '/auth/login';
         }
 
-        return resposta;
-    } catch (erro) {
-        console.error('Erro na requisição:', erro);
-        throw erro;
+        return Promise.reject(erro);
     }
-}
+);
+
+export default api;

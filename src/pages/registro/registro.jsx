@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ApiRequest } from "../../service/api.js";
+import api from "../../service/api";
 import "./registro.css";
 
 const Registro = () => {
@@ -9,21 +9,38 @@ const Registro = () => {
     const navigate = useNavigate();
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmarPassword, setConfirmarPassword] = useState("");
+    const [senha, setSenha] = useState("");
+    const [confirmarSenha, setConfirmarSenha] = useState("");
     const [erros, setErros] = useState({});
 
     const fazerRegistro = async (event) => {
         event.preventDefault();
 
+        //Já acusa diretamente dentro do próprio React..
+        if(senha !== confirmarSenha ){
+            setErros({dados: "Senhas estão diferentes, corrija."});
+            return;
+        }
+
         try {
-            console.log("Apenas testando");
+            //A API faz verificações de senhas diferentes, mas ainda precisa de um DTO completo com o confirmarSenha.
+            const resposta = await api.post('/auth/registro', {nome, email, senha, confirmarSenha})
+            navigate('/auth/login')
+
         } catch (erro) {
-            setErros({ geral: "Ocorreu um erro ao tentar fazer o registro." });
+            const status = erro.response?.status;
+            if(status === 400){
+                setErros({dados: "Dados incorretos, cheque e preencha novamente."});
+            }
+            else if(status === 500){
+               setErros({servidor: "Erro interno de servidor."}); 
+            }
+           else{
+               setErros({geral: "Erro geral ao cadastrar usuário"});
+            }
         }
 
     };
-
 
     return (
         <div className="container">
@@ -35,7 +52,7 @@ const Registro = () => {
                     <label className="form-label">Nome</label>
                     <input
                         type="text"
-                        placeholder="Primeiro nome"
+                        placeholder="Seu primeiro nome"
                         className="form-input"
                         value={nome}
                         onChange={(e) => setNome(e.target.value)}
@@ -45,7 +62,7 @@ const Registro = () => {
                     <label className="form-label">Email</label>
                     <input
                         type="email"
-                        placeholder="teste@gmail.com"
+                        placeholder="seu.email@gmail.com"
                         className="form-input"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -55,23 +72,23 @@ const Registro = () => {
                     <label className="form-label">Senha</label>
                     <input
                         type="password"
-                        placeholder=" >= 8, Maiúscula, Número e Símbolo"
+                        placeholder="Crie uma senha forte (Ex: Typing9876@)"
                         className="form-input"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        value={senha}
+                        onChange={(e) => setSenha(e.target.value)}
                     />
                 </div>
                 <div className="form-group">
                     <label className="form-label">Confirmar Senha</label>
                     <input
                         type="password"
-                        placeholder=" >= 8, Maiúscula, Número e Símbolo"
+                        placeholder="Repita a senha"
                         className="form-input"
-                        value={confirmarPassword}
-                        onChange={(e) => setConfirmarPassword(e.target.value)}
+                        value={confirmarSenha}
+                        onChange={(e) => setConfirmarSenha(e.target.value)}
                     />
                 </div>
-                <button type="submit" className="btn-primario">Cadastrar</button>
+                <button type="submit" className="btn-primario" onClick={fazerRegistro}>Cadastrar</button>
             </form>
             <div className="links-uteis">
                 <Link to="/auth/login">Já possui conta? Clique aqui</Link>
