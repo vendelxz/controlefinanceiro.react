@@ -21,6 +21,7 @@ function Home() {
 
   const saldo = receitas - despesas;
 
+  //Pensar depois em uma refatoração para cada card de acordo com a aba (Receitas, despesas...) ter uma cor personalizada.
   return (
    <div className="home-content">
       {/* Seção de Cards */}
