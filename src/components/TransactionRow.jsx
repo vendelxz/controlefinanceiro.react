@@ -1,6 +1,6 @@
 import { formatarMoeda, formatarData } from "../utils/formatador";
 
-export function TransactionRow({ transacao }) {
+export function TransactionRow({ transacao, onDeletar }) {
   return (
     <tr>
       <td>{formatarData(transacao.data)}</td>
@@ -15,8 +15,7 @@ export function TransactionRow({ transacao }) {
         {formatarMoeda(transacao.valor)}
       </td>
       <td>
-        <button className="btn-edit">✏️</button>
-        <button className="btn-delete">🗑️</button>
+        <button className="btn-delete" onClick={onDeletar}>Excluir</button>
       </td>
     </tr>
   );

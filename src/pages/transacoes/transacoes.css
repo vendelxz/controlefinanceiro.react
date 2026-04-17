@@ -12,6 +12,13 @@
     margin-bottom: 1.5rem;
 }
 
+.header-pagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
 .tabela-container {
     overflow-x: auto; 
 }
@@ -59,13 +66,13 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-.btn-primario:hover {
+.btn-transacao:hover {
     background-color:¨#092fe9 ;
     transform: translateY(-1px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-.btn-primario:active {
+.btn-transacao:active {
     transform: translateY(0);
 }
 
@@ -83,4 +90,81 @@
     
     /* Garante que ele se comporte como título (sozinho na linha) */
     display: block;
+}
+
+/* Filtros */
+.filtros-section {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: #374151;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.card-select:focus {
+    border-color: #092fe9;
+}
+
+/* Formulário de adicionar transação */
+.add-transaction-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.add-transaction-form input,
+.add-transaction-form select {
+    padding: 0.6rem 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: #374151;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.add-transaction-form input:focus,
+.add-transaction-form select:focus {
+    border-color: #092fe9;
+}
+
+.form-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.form-acoes button {
+    padding: 0.6rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+.form-acoes button:first-child {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.form-acoes button:last-child {
+    background-color: #092fe9;
+    color: #fff;
+}
+
+.form-acoes button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
 }

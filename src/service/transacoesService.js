@@ -1,14 +1,13 @@
 import api from './api'
 
-//Pronta para o consumo dos hooks personalizados do react
+//Pronta para o consumo dos hooks personalidos...
 export const criarTransacao = (dados) => {
     api.post('/transacoes/criar', {dados});
 }
 
-export const buscarTransacao = (mes, ano) => {
-    api.get('/transacoes/filtro', {params:{mes,ano}} );
-}
+export const buscarTransacao = (mes, ano) => 
+    api.get('/transacoes/filtro', { params: { mes, ano } });
 
 export const deletarTransacao = (id) => {
-    api.delete(`/transacoes/deletar/${id}`);
+    api.delete(`/transacoes/${id}`);
 }

@@ -6,7 +6,7 @@ import {buscarTransacao} from '../service/transacoesService'
 export function useTransacoes(mes, ano){
 
 const [transacoes, setTransacoes] = useState([]);
-const [loading, setLoading] = useState([]);
+const [loading, setLoading] = useState(true);
 const [erros, setErros] = useState(null);
 
 useEffect(() => {

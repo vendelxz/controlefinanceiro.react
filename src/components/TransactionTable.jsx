@@ -1,6 +1,6 @@
 import { TransactionRow } from "./TransactionRow";
 
-export function TransactionTable({ listaTransacoes }) {
+export function TransactionTable({ listaTransacoes, onDeletar }) {
   return (
     <div className="tabela-container">
       <table className="tabela-financeira">
@@ -16,8 +16,10 @@ export function TransactionTable({ listaTransacoes }) {
         <tbody>
           {listaTransacoes.length > 0 ? (
             listaTransacoes.map((t) => (
-              <TransactionRow key={t.id} transacao={t} />
-            ))
+             <TransactionRow key={t.id} transacao={t} onDeletar={() => onDeletar(t.id)} />
+            )
+          )
+            
           ) : (
             <tr>
               <td colSpan="5" style={{ textAlign: 'center', padding: '2rem' }}>
