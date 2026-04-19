@@ -3,10 +3,12 @@ Sistema web de controle financeiro pessoal construído com React. Versão reimag
 
 > ⚠️ Em desenvolvimento — estrutura base configurada
 
+> ⚠️ CORS Desabilitado - Ainda em testes
+
 ## Funcionalidades 
-- [ ] Autenticação com JWT
-- [ ] Cadastro de receitas e despesas
-- [ ] Balanceamento mensal
+- [x] Autenticação com JWT
+- [x] Cadastro de receitas e despesas
+- [x] Balanceamento mensal
 - [ ] Envio de e-mails via SMTP
 - [ ] Recuperação de senha
 - [ ] Geração de relatórios em PDF
@@ -28,9 +30,8 @@ src/
 ├── components/
 ├── hooks/
 ├── pages/
-│   ├── home/
-│   └── login/
 ├── services/
+├── utils/
 ├── index.css
 └── main.jsx
 ```

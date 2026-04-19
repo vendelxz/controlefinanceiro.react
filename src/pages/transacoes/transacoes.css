@@ -1,0 +1,170 @@
+.transacoes-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.header-tabela {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.header-pagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.tabela-container {
+    overflow-x: auto; 
+}
+
+.tabela-financeira {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.tabela-financeira th {
+    padding: 12px;
+    border-bottom: 2px solid #f3f4f6;
+    color: #6b7280;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.tabela-financeira td {
+    padding: 16px 12px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.95rem;
+    color: #374151;
+}
+
+.btn-edit, .btn-delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+.btn-transacao{
+    background-color: #092fe9;;
+    color: #fff;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    transition: all 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-transacao:hover {
+    background-color:¨#092fe9 ;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-transacao:active {
+    transform: translateY(0);
+}
+
+.h2-transactions{
+    font-size: 1.5rem;
+    color: #092fe9;
+    border: 1px solid black;
+    margin-bottom: 0.5rem;
+
+    /* A configuração que "mata" o problema: */
+    width: fit-content; 
+    
+    /* Respiro interno para o texto não encostar na linha */
+    padding: 2px 10px;
+    
+    /* Garante que ele se comporte como título (sozinho na linha) */
+    display: block;
+}
+
+/* Filtros */
+.filtros-section {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: #374151;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.card-select:focus {
+    border-color: #092fe9;
+}
+
+/* Formulário de adicionar transação */
+.add-transaction-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.add-transaction-form input,
+.add-transaction-form select {
+    padding: 0.6rem 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: #374151;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.add-transaction-form input:focus,
+.add-transaction-form select:focus {
+    border-color: #092fe9;
+}
+
+.form-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.form-acoes button {
+    padding: 0.6rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+.form-acoes button:first-child {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.form-acoes button:last-child {
+    background-color: #092fe9;
+    color: #fff;
+}
+
+.form-acoes button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
