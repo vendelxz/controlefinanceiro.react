@@ -1,4 +1,5 @@
 import './css/Topbar.css'
+import { Link } from 'react-router-dom';
 
 
 export function Topbar() {
@@ -11,7 +12,7 @@ export function Topbar() {
       <div className="topbar-actions">
         <button className="btn-tema"> Dark Mode</button>
         <div className="user-info">
-          <span>Olá, Bem vindo!</span>
+          <p>Bem vindo</p>
         </div>
       </div>
     </header>

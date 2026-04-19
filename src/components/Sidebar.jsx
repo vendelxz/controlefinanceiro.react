@@ -6,7 +6,7 @@ export function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
-        <h2>FinanceApp</h2>
+        <h2>Finance Control</h2>
       </div>
       
       <nav className="sidebar-nav">

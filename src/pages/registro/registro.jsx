@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../../service/api";
+import { registro } from "../../service/authService";
 import "./registro.css";
 
 const Registro = () => {
@@ -12,6 +13,7 @@ const Registro = () => {
     const [senha, setSenha] = useState("");
     const [confirmarSenha, setConfirmarSenha] = useState("");
     const [erros, setErros] = useState({});
+    const [sucesso, setSucesso] = useState(false);
 
     const fazerRegistro = async (event) => {
         event.preventDefault();
@@ -24,7 +26,8 @@ const Registro = () => {
 
         try {
             //A API faz verificações de senhas diferentes, mas ainda precisa de um DTO completo com o confirmarSenha.
-            const resposta = await api.post('/auth/registro', {nome, email, senha, confirmarSenha})
+            const resposta = await registro(nome, email, senha, confirmarSenha);
+            setSucesso(true);//Mostrar uma mensagem de sucesso...
             navigate('/auth/login')
 
         } catch (erro) {
@@ -41,6 +44,8 @@ const Registro = () => {
         }
 
     };
+
+   if (sucesso) return <p className="p-sucesso">Registrado, redirecionando para login...</p>
 
     return (
         <div className="container">

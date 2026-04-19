@@ -1,0 +1,8 @@
+.fim-da-pagina{
+    display: flex;
+    align-items: center;
+    justify-self: unset;
+     width: 100%; 
+    
+}
+

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./login.css";
+import { login } from "../../service/authService";
 import api from "../../service/api";
 
 const Login = () => {
@@ -14,8 +15,8 @@ const Login = () => {
         event.preventDefault(); 
         
         try {
-            const resposta = await api.post('/auth/login', {email, password});
 
+            const resposta = await login(email, password);
             localStorage.setItem('token', resposta.token);
             navigate('/home');
 
