@@ -34,4 +34,7 @@ export const solicitarRecuperacao = async (email, origem) => {
     return response.data;
 }
 
-export const recuperaSenha = async (token, novaSenha, confirmarSenha) => {} //Não implementado por enquanto, para cuidar da lógica de extração do token depois na página...
+export const recuperaSenha = async (token, novaSenha) => {
+    const response = await api.post('/auth/recuperar-senha',{token, novaSenha})
+    return response.data;
+} //Implementação para testes...
