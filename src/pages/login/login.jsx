@@ -3,25 +3,27 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./login.css";
 import { login } from "../../service/authService";
-import api from "../../service/api";
+import api from "../../service/api.js";
 
 const Login = () => {
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [senha, setSenha] = useState("");
     const [erros, setErros] = useState({});
     const navigate = useNavigate();
 
     const fazerLogin = async (event) => {
         event.preventDefault(); 
+        console.log("Entrando em fazerLogin"); //Para fins de debug e erros...
         
         try {
 
-            const resposta = await login(email, password);
+            const resposta = await login(email, senha);
             localStorage.setItem('token', resposta.token);
             navigate('/home');
 
         } catch (erro) {
             const status = erro.response?.status;
+            console.log("Erro ao fazer login:", erro); //Para fins de debug e erros...
 
             if(status === 400){
                 setErros({dados: "E-mail ou senha incorretos."});
@@ -30,7 +32,7 @@ const Login = () => {
                 setErros({servidor: "Erro interno de servidor."});
             }
             else{
-                setErros({geral: "Erro ao processar login - Contate o suporte"})
+                setErros({geral: "Erro ao processar login - Contate o suporte."})
             }
         }
     };
@@ -58,8 +60,8 @@ const Login = () => {
                 <input 
                     type="password" 
                     placeholder="••••••••"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)} 
+                    value={senha}
+                    onChange={(e) => setSenha(e.target.value)} 
                 />
             </div>
 

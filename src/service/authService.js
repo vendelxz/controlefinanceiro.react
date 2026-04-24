@@ -1,3 +1,5 @@
+import api from './api.js';
+import { useNavigate } from 'react-router-dom';
 
 //Centralizar a lógica de algumas ações do usuário.
 
@@ -5,19 +7,20 @@
 export const logout = () => {
 
     const token = localStorage.getItem('token');
+    console.log("Token encontrado para logout:"); //Para fins de debug e erros...
 
     if (token === null) {
-        return;
+        window.location.replace('/auth/login');
     }
 
     localStorage.removeItem(token);
-    window.location.href('/auth/login');
-
+    console.log("Token removido do localStorage."); //Para fins de debug e erros...
+    window.location.replace('/auth/login');
 }
 
 //Login
-export const login = async (email, password) => {
-    const response = await api.post('/auth/login', { email, password });
+export const login = async (email, senha) => {
+    const response = await api.post('/auth/login', { email, senha });
     return response.data;
 }
 
@@ -26,8 +29,8 @@ export const registro = async (nome, email, senha, confirmarSenha) => {
     return response.data;
 }
 
-export const solicitarRecuperacao = async (email, origin) => {
-    const response = await api.post('/auth/esqueci-senha', {email, origin});//Passando a origem do site para montar o e-mail.
+export const solicitarRecuperacao = async (email, origem) => {
+    const response = await api.post('/auth/esqueci-senha', {email, origem});//Passando a origem do site para montar o e-mail.
     return response.data;
 }
 
