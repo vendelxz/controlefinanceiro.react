@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import {Modal} from '../../components/Modal'
+import {Modal} from '../../components/ui/Modal.jsx';
 import "./login.css";
 import { login } from "../../service/authService";
 import api from "../../service/api.js";

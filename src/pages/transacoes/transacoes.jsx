@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { TransactionTable } from '../../components/TransactionTable';
+import { TransactionTable } from '../../components/ui/TransactionTable';
 import { useTransacoes } from '../../hooks/useTransacoes';
 import { criarTransacao } from '../../service/transacoesService';
 import { deletarTransacao } from '../../service/transacoesService';
 import { ANOS, MESES } from '../../utils/filtroDados';
-import { AddTransaction } from '../../components/addTransaction';
-import {Modal} from '../../components/Modal'
+import { AddTransaction } from '../../components/ui/addTransaction';
+import {Modal} from '../../components/ui/Modal'
 import './transacoes.css'; 
 
 function Transacoes() {

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { SummaryCard } from '../../components/SummaryCard'
+import { SummaryCard } from '../../components/ui/SummaryCard'
 import { useTransacoes } from '../../hooks/useTransacoes.js'
 import Transacoes from '../transacoes/transacoes.jsx'
 import { ANOS, MESES } from '../../utils/filtroDados';

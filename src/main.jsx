@@ -12,7 +12,7 @@ import Transacoes from './pages/transacoes/transacoes.jsx'
 import Login from '../src/pages/login/login.jsx'
 import Registro from '../src/pages/registro/registro.jsx'
 import Solicitar from '../src/pages/recuperacao_senha/solicitar.jsx'
-import {MainLayout} from './components/MainLayout'
+import {MainLayout} from './components/layout/MainLayout'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

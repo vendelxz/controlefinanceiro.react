@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import './css/Sidebar.css'; 
-import { logout } from '../service/authService';
+import '../css/Sidebar.css'; 
+import { logout } from '../../service/authService';
 
 export function Sidebar() {
   return (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Modal } from "../../components/Modal";
+import { Modal } from "../../components/ui/Modal";
 import api from "../../service/api";
 import { useNavigate } from "react-router-dom";
 import { solicitarRecuperacao } from "../../service/authService";

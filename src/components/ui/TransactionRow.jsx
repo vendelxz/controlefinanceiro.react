@@ -1,5 +1,5 @@
-import { formatarMoeda, formatarData } from "../utils/formatador";
-import './css/TransactionRow.css'
+import { formatarMoeda, formatarData } from "../../utils/formatador";
+import '../css/TransactionRow.css';
 
 export function TransactionRow({ transacao, onDeletar }) {
   return (
