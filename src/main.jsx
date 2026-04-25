@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { ProtectedRoute } from './components/ProtectedRoute'
+import { ProtectedRoute } from './routes/ProtectedRoute'
 import './index.css'
 import './pages/login/login.css'
 import './pages/registro/registro.css'

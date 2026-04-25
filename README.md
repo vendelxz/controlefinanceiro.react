@@ -31,6 +31,7 @@ src/
 ├── hooks/
 ├── pages/
 ├── services/
+├── routes/
 ├── utils/
 ├── index.css
 └── main.jsx
