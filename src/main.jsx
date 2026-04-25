@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { ProtectedRoute } from './components/ProtectedRoute'
 import './index.css'
 import './pages/login/login.css'
 import './pages/registro/registro.css'
@@ -20,8 +21,9 @@ createRoot(document.getElementById('root')).render(
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/solicitar" element={<Solicitar />} />
         <Route path="/auth/registro" element={<Registro />} />
-        <Route path="/" element={<MainLayout />}>
-          <Route path="home" element={<Home />} />
+        <Route path="/home" element={<ProtectedRoute><MainLayout /></ProtectedRoute>}>
+        <Route index element={<Navigate to="/home/visao-geral" replace />} />
+          <Route path="visao-geral" element={<Home />} />
           <Route path="transacoes" element={<Transacoes />} />
         </Route>
       </Routes>

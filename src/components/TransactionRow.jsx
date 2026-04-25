@@ -1,4 +1,5 @@
 import { formatarMoeda, formatarData } from "../utils/formatador";
+import './css/TransactionRow.css'
 
 export function TransactionRow({ transacao, onDeletar }) {
   return (
@@ -11,8 +12,7 @@ export function TransactionRow({ transacao, onDeletar }) {
         </span>
       </td>
       <td className={transacao.tipo === 'RECEITA' ? 'positivo' : 'negativo'}>
-        {transacao.tipo === 'RECEITA' ? '+ ' : '- '}
-        {formatarMoeda(transacao.valor)}
+         {formatarMoeda(transacao.valor)}
       </td>
       <td>
         <button className="btn-delete" onClick={onDeletar}>Excluir</button>

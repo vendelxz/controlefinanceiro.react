@@ -13,7 +13,7 @@ export const logout = () => {
         window.location.replace('/auth/login');
     }
 
-    localStorage.removeItem(token);
+    localStorage.removeItem('token');
     console.log("Token removido do localStorage."); //Para fins de debug e erros...
     window.location.replace('/auth/login');
 }

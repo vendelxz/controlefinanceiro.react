@@ -10,7 +10,7 @@ export function Sidebar() {
       </div>
       
       <nav className="sidebar-nav">
-        <NavLink to="/home" className={({ isActive }) => isActive ? "nav-btn ativo" : "nav-btn"}>
+        <NavLink to="/home/visao-geral" className={({ isActive }) => isActive ? "nav-btn ativo" : "nav-btn"}>
           <img 
             src="https://cdn-icons-png.flaticon.com/128/3917/3917033.png" 
             alt="Home" 
@@ -19,7 +19,7 @@ export function Sidebar() {
           Visão Geral
         </NavLink>
 
-        <NavLink to="/transacoes" className={({ isActive }) => isActive ? "nav-btn ativo" : "nav-btn"}>
+        <NavLink to="/home/transacoes" className={({ isActive }) => isActive ? "nav-btn ativo" : "nav-btn"}>
           <img 
             src="https://cdn-icons-png.flaticon.com/128/3917/3917361.png" 
             alt="Transações" 
@@ -28,7 +28,7 @@ export function Sidebar() {
           Transações
         </NavLink>
 
-        <NavLink to="/relatorios" className={({ isActive }) => isActive ? "nav-btn ativo" : "nav-btn"}>
+        <NavLink to="/home/relatorios" className={({ isActive }) => isActive ? "nav-btn ativo" : "nav-btn"}>
           <img 
             src="https://cdn-icons-png.flaticon.com/128/3916/3916631.png" 
             alt="Relatórios" 

@@ -50,6 +50,7 @@
 
 .nav-btn.ativo {
     background-color: #092fe9;
+    border: 0.1px solid black;
     color: #ffffff !important;
 }
 
