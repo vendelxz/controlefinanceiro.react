@@ -3,7 +3,7 @@ import { formatarMoeda, formatarData } from "../utils/formatador";
 export function TransactionRow({ transacao, onDeletar }) {
   return (
     <tr>
-      <td>{formatarData(transacao.data)}</td>
+      <td>{formatarData(transacao.dataTransacao)}</td>
       <td>{transacao.descricao}</td>
       <td>
         <span className={`tag-categoria ${transacao.categoria.toLowerCase()}`}>
