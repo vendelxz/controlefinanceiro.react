@@ -15,7 +15,6 @@ const Login = () => {
 
     const fazerLogin = async (event) => {
         event.preventDefault(); 
-        console.log("Entrando em fazerLogin"); //Para fins de debug e erros...
         
         try {
 
@@ -27,7 +26,6 @@ const Login = () => {
 
         } catch (erro) {
             const status = erro.response?.status;
-            console.log("Erro ao fazer login:", erro); //Para fins de debug e erros...
 
             if(status === 400){
                 setErros({dados: "E-mail ou senha incorretos."});
