@@ -14,6 +14,9 @@ export function TransactionRow({ transacao, onDeletar }) {
       <td className={transacao.tipo === 'RECEITA' ? 'positivo' : 'negativo'}>
          {formatarMoeda(transacao.valor)}
       </td>
+      <td className="metodo-pagamento">
+        {transacao.metodoPagamento}
+      </td>
       <td>
         <button className="btn-delete" onClick={onDeletar}>Excluir</button>
       </td>

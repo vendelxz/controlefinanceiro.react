@@ -6,13 +6,15 @@ td.negativo{
     color: red !important;
 }
 
-.btn-delete{
-    style="padding: 0.3rem 0.6rem;
-     font-size: 0.8rem; 
-     color: #ff4d4d;
-     border: 1px solid #ff4d4d;
-     background: transparent;
-       cursor: pointer; 
-        border-radius: 4px; 
-        transition: all 0.3s;
+.btn-delete {
+    background-color: transparent;
+    border: none;
+    color: #fd0303;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.metodo-pagamento {
+    font-style: italic !important;
+    color: #4b4545 !important;
 }
