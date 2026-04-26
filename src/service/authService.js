@@ -7,14 +7,12 @@ import { useNavigate } from 'react-router-dom';
 export const logout = () => {
 
     const token = localStorage.getItem('token');
-    console.log("Token encontrado para logout:"); //Para fins de debug e erros...
 
     if (token === null) {
         window.location.replace('/auth/login');
     }
 
     localStorage.removeItem('token');
-    console.log("Token removido do localStorage."); //Para fins de debug e erros...
     window.location.replace('/auth/login');
 }
 

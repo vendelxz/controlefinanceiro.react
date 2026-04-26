@@ -10,6 +10,7 @@ import './pages/recuperacao_senha/solicitar.css'
 import './pages/recuperacao_senha/recuperar.css'
 import Home from '../src/pages/home/Home.jsx'
 import Transacoes from './pages/transacoes/transacoes.jsx'
+import Relatorios from './pages/relatorios/relatorios.jsx'
 import Login from '../src/pages/login/login.jsx'
 import Registro from '../src/pages/registro/registro.jsx'
 import Solicitar from '../src/pages/recuperacao_senha/solicitar.jsx'
@@ -28,6 +29,7 @@ createRoot(document.getElementById('root')).render(
         <Route index element={<Navigate to="/home/visao-geral" replace />} />
           <Route path="visao-geral" element={<Home />} />
           <Route path="transacoes" element={<Transacoes />} />
+          <Route path="relatorios" element={<Relatorios />} />
         </Route>
       </Routes>
     </BrowserRouter>
