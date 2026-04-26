@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 //useEffect para extrair o token diretamente da URL...
 //Para omitir o queryParam da URL, ainda verei as melhores opções...
@@ -14,11 +14,12 @@ export function useTokenExtractor(url) {
         //Verficação para dar um throw para o JSX se tiver vazio, nulo ou o que seja...
         if( tokenDaURL === null || tokenDaURL === '' || tokenDaURL === undefined){
             setErro({ dados: "Token inválido ou ausente na URL." });
+            return;
         }
 
         setToken(tokenDaURL);
 
     }, [url]);
     
-    return token;
+    return {token, erro};
 }
