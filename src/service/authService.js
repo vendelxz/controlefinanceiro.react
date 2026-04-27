@@ -33,6 +33,6 @@ export const solicitarRecuperacao = async (email, origem) => {
 }
 
 export const recuperaSenha = async (token, novaSenha) => {
-    const response = await api.post('/auth/recuperar-senha',{token, novaSenha})
+    const response = await api.post('/auth/redefinir-senha',{token, novaSenha})
     return response.data;
 } //Implementação para testes...

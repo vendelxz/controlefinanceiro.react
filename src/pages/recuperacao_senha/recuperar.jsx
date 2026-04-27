@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { recuperaSenha } from "../../service/authService";
 import { useTokenExtractor } from "../../hooks/useTokenExtractor";
 import { useNavigate } from "react-router-dom";
-import {Modal} from "../../components/ui/Modal";
+import { Modal } from "../../components/ui/Modal";
 import './recuperar.css';
 
 const RecuperarSenha = () => {
 
     const [novaSenha, setNovaSenha] = useState('');
     const [confirmarSenha, setConfirmarSenha] = useState(''); //Apenas para ver se digitou corretamente, não irá para a requisição...
-    const {token, erro: erroToken} = useTokenExtractor(window.location.search); //Hook ficará responsável por preencher...
+    const { token, erro: erroToken } = useTokenExtractor(window.location.search); //Hook ficará responsável por preencher...
     const [erro, setErro] = useState({});
     const [sucesso, setSucesso] = useState(false);
     const navigate = useNavigate();
@@ -17,30 +17,44 @@ const RecuperarSenha = () => {
 
     const handleRecuperacao = async (event) => {
         event.preventDefault();
-        
-        if(novaSenhaSenha !== confirmarSenha){
+
+        if (novaSenha !== confirmarSenha) {
             setErro({ dados: "As senhas não coincidem. Por favor, verifique e tente novamente." });
             return;
         }
 
-        if(erroToken.dados) return; //Se tiver erro com o token ele retorna e sai...
+        if (erroToken.dados) return; //Se tiver erro com o token ele retorna e sai...
 
-        try{
+        try {
 
             const resposta = await recuperaSenha(token, novaSenha);
             setSucesso(true);
             navigate('/auth/login');
 
-        }catch(erro){
+        } catch (erro) {
             const status = erro.response?.status;
+
+            if (status === 400) {
+                setErro({ dados: "Senha deve ter no mínimo 8 caracteres, uma letra maiúscula e um caractere especial." });
+            }
+
+            else if (status === 404) {
+                setErro({ dados: erro.response.data.mensagem });
+            }
+
+            else {
+                setErro({ geral: erro.response?.data?.mensagem || "Ocorreu um erro inesperado. Por favor, tente novamente mais tarde." });
+            }
+
         }
     }
 
-    
-    
+
+
+
     //useEffect de redirecionar...
     useEffect(() => {
-        if(sucesso){
+        if (sucesso) {
             const timer = setTimeout(() => {
                 navigate('/auth/login');
             }, 4000); //Redireciona após 4 segundos
@@ -49,19 +63,19 @@ const RecuperarSenha = () => {
         }
 
     }, [sucesso]);
-    
 
 
-//Pois caso abra se apenas tiver o token de parâmetro, o usuário pode ter entrado em um link ou endpoint errado.
-//É um caso de uso meio específico, mas para evitar estresse depois...
 
-//onClose do Modal é null pois não será fechado pois o usuário indepentedente de qualquer acão será redirecionado...
+    //Pois caso abra se apenas tiver o token de parâmetro, o usuário pode ter entrado em um link ou endpoint errado.
+    //É um caso de uso meio específico, mas para evitar estresse depois...
 
-    return(<>
-            <Modal isOpen={sucesso} onClose={null} 
+    //onClose do Modal é null pois não será fechado pois o usuário indepentedente de qualquer acão será redirecionado...
+
+    return (<>
+        <Modal isOpen={sucesso} onClose={null}
             titulo="Senha Redefinida" children="Sua senha foi redefinida com sucesso, redirecionando para o login..."></Modal>
 
-         <div className="container">
+        <div className="container">
             <form className="recuperar-form" onSubmit={handleRecuperacao}>
 
                 <h2>Nova Senha</h2>
@@ -73,6 +87,10 @@ const RecuperarSenha = () => {
 
                 {erroToken.dados && (
                     <div className="erro-mensagem">{erroToken.dados}</div>
+                )}
+
+                {erro.geral && (
+                    <div className="erro-mensagem">{erro.geral}</div>
                 )}
 
                 <div className="form-group">
@@ -104,13 +122,13 @@ const RecuperarSenha = () => {
                 </button>
 
             </form>
-                <div className="links-uteis">
-                    <a href="/auth/login">Voltar para o login</a>
-                </div>
+            <div className="links-uteis">
+                <a href="/auth/login">Voltar para o login</a>
+            </div>
 
         </div>
-        </>
+    </>
     );
 }
 
- export default RecuperarSenha;
+export default RecuperarSenha;
