@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SummaryCard } from '../../components/ui/SummaryCard'
+import {SeletorPeriodo} from '../../components/ui/SeletorPeriodo'
 import { useTransacoes } from '../../hooks/useTransacoes.js'
 import Transacoes from '../transacoes/transacoes.jsx'
 import { ANOS, MESES } from '../../utils/filtroDados';
@@ -30,14 +31,13 @@ function Home() {
   return (
    <div className="home-content">
      <div className="filtros-section">
-                <select className='card-select' value={mes} onChange={e => setMes(Number(e.target.value))}>
-                  {MESES.map(m => <option key={m.valor} value={m.valor}>{m.label}</option>)}
-                </select>
-
-                <select className='card-select' value={ano} onChange={e => setAno(Number(e.target.value))}>
-                  {ANOS.map(a => <option key={a} value={a}>{a}</option>)}
-                </select>
-            </div>
+        <SeletorPeriodo
+            mes={mes}
+            ano={ano}
+            onMesChange={setMes}
+            onAnoChange={setAno}
+        />
+      </div>
       {/* Seção de Cards */}
       <section className="summary-grid">
         <SummaryCard titulo="Receitas" valor={receitas} tipo="positivo" />

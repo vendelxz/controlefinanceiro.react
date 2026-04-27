@@ -3,7 +3,7 @@ import { TransactionTable } from '../../components/ui/TransactionTable';
 import { useTransacoes } from '../../hooks/useTransacoes';
 import { criarTransacao } from '../../service/transacoesService';
 import { deletarTransacao } from '../../service/transacoesService';
-import { ANOS, MESES } from '../../utils/filtroDados';
+import {SeletorPeriodo} from '../../components/ui/SeletorPeriodo';
 import { AddTransaction } from '../../components/ui/addTransaction';
 import {Modal} from '../../components/ui/Modal'
 import './transacoes.css'; 
@@ -89,13 +89,12 @@ function Transacoes() {
       </div>
 
       <div className="filtros-section">
-        <select className='card-select' value={mes} onChange={e => setMes(Number(e.target.value))}>
-          {MESES.map(m => <option key={m.valor} value={m.valor}>{m.label}</option>)}
-        </select>
-
-        <select className='card-select' value={ano} onChange={e => setAno(Number(e.target.value))}>
-          {ANOS.map(a => <option key={a} value={a}>{a}</option>)}
-        </select>
+       <SeletorPeriodo 
+       mes={mes} 
+       ano={ano} 
+       onMesChange={setMes} 
+       onAnoChange={setAno} 
+       />
       </div>
 
       <TransactionTable listaTransacoes={transacoes} onDeletar={handleDeletar} />
