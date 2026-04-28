@@ -33,7 +33,7 @@ const Registro = () => {
         } catch (erro) {
             const status = erro.response?.status;
             if(status === 400){
-                setErros({dados: "Dados incorretos, cheque e preencha novamente."});
+                setErros({dados: "Senha precisa ter no mínimo 8 caracteres, uma letra maiúscula e um caractere especial"});
             }
             else if(status === 500){
                setErros({servidor: "Erro interno de servidor."}); 
@@ -53,6 +53,7 @@ const Registro = () => {
                 <h2>Cadastro de usuário</h2>
                 <p className="subtitle">Crie sua conta para continuar</p>
                 {erros.geral && <div className="erro-mensagem">{erros.geral}</div>}
+                {erros.dados && <div className="erro-mensagem">{erros.dados}</div>}
                 <div className="form-group">
                     <label className="form-label">Nome</label>
                     <input
