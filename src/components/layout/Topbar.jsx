@@ -10,7 +10,6 @@ export function Topbar() {
       </div>
       
       <div className="topbar-actions">
-        <button className="btn-tema"> Dark Mode</button>
         <div className="user-info">
           <p>Bem vindo</p>
         </div>
