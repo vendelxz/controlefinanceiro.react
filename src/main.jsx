@@ -15,11 +15,13 @@ import Login from '../src/pages/login/login.jsx'
 import Registro from '../src/pages/registro/registro.jsx'
 import Solicitar from '../src/pages/recuperacao_senha/solicitar.jsx'
 import Recuperar from '../src/pages/recuperacao_senha/recuperar.jsx'
+import { PeriodoProvider } from './contexts/PeriodoContext.jsx'
 import {MainLayout} from './components/layout/MainLayout'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
+    <PeriodoProvider>
       <Routes>
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/solicitar" element={<Solicitar />} />
@@ -32,6 +34,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="relatorios" element={<Relatorios />} />
         </Route>
       </Routes>
+      </PeriodoProvider>
     </BrowserRouter>
   </StrictMode>,
 )
