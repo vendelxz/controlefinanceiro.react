@@ -9,9 +9,9 @@ Sistema web de controle financeiro pessoal construído com React. Versão reimag
 - [x] Autenticação com JWT
 - [x] Cadastro de receitas e despesas
 - [x] Balanceamento mensal
-- [ ] Envio de e-mails via SMTP
-- [ ] Recuperação de senha
-- [ ] Geração de relatórios em PDF
+- [x] Envio de e-mails via SMTP
+- [x] Recuperação de senha
+- [x] Geração de relatórios em PDF
 - [ ] Dark mode
 
 ## Stack
@@ -20,7 +20,7 @@ Sistema web de controle financeiro pessoal construído com React. Versão reimag
 | Frontend | React, React Router DOM |
 | Backend | Java, Spring Boot |
 | Segurança | JWT, BCrypt |
-| Banco de dados | PostgreSQL (Neon) |
+| Banco de dados | PostgreSQL (Supabase) |
 | Infraestrutura | Docker, AWS EC2 |
 
 ## Estrutura
@@ -30,6 +30,7 @@ src/
 ├── components/
 ├── hooks/
 ├── pages/
+├── contexts/
 ├── services/
 ├── routes/
 ├── utils/
