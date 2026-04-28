@@ -1,0 +1,20 @@
+ td.positivo{
+    color: green !important;
+}
+
+td.negativo{
+    color: red !important;
+}
+
+.btn-delete {
+    background-color: transparent;
+    border: none;
+    color: #fd0303;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.metodo-pagamento {
+    font-style: italic !important;
+    color: #4b4545 !important;
+}

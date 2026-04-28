@@ -39,7 +39,7 @@ const Registro = () => {
                setErros({servidor: "Erro interno de servidor."}); 
             }
            else{
-               setErros({geral: "Erro geral ao cadastrar usuário"});
+               setErros({geral: "Erro ao cadastrar usuário - Contate o suporte."});
             }
         }
 

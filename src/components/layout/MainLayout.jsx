@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
-import { Sidebar } from '../components/Sidebar.jsx';
-import { Topbar } from '../components/Topbar.jsx';
-import './css/MainLayout.css';
+import { Sidebar } from './Sidebar.jsx';
+import { Topbar } from './Topbar.jsx';
+import '../css/MainLayout.css';
 
 export function MainLayout() {
   return (

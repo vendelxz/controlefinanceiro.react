@@ -1,0 +1,10 @@
+.relatorios-container {
+    display: flex ;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.relatorios-cards {
+    display: flex;
+    gap: 1.5rem;
+}

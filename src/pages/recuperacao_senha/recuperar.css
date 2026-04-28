@@ -14,7 +14,7 @@
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-.login-form {
+.recuperar-form {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -54,7 +54,7 @@ p.subtitle {
     font-size: 0.875rem;
 }
 
-.login-form input {
+.recuperar-form input {
     padding: 0.75rem 1rem;
     border: 1px solid #d1d5db;
     border-radius: 0.5rem;
@@ -63,7 +63,7 @@ p.subtitle {
     font-size: 1rem;
 }
 
-.login-form input:focus {
+.recuperar-form input:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
     outline: none;
@@ -84,7 +84,7 @@ p.subtitle {
 }
 
 .btn-primario:hover {
-    background-color:¨#092fe9 ;
+    background-color: #001db1;
     transform: translateY(-1px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
@@ -104,16 +104,6 @@ p.subtitle {
     text-align: center;
 }
 
-.entrando-mensagem {
-    background-color: #fef2f2;
-    color: #0bb142;
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    margin-bottom: 1.5rem;
-    font-size: 0.875rem;
-    border: 1px solid #fee2e2;
-    text-align: center;
-}
 
 .links-uteis {
     color: #092fe9;

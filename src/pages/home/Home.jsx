@@ -1,15 +1,22 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { SummaryCard } from '../../components/SummaryCard'
+import { SummaryCard } from '../../components/ui/SummaryCard'
+import SeletorPeriodo from '../../components/ui/SeletorPeriodo'
+import { useTransacoes } from '../../hooks/useTransacoes.js'
 import Transacoes from '../transacoes/transacoes.jsx'
+import {usePeriodo} from '../../contexts/PeriodoContext.jsx'
+import { ANOS, MESES } from '../../utils/filtroDados';
 import './home.css'
 
 function Home() {
+  
+  const {mes, ano} = usePeriodo();
+
+  const { transacoes } = useTransacoes(mes, ano);
+
+
 
   //Para testar apenas...
-  const transacoes = [
-  ];
-
   //Lógica de valor dos cards...
   const receitas = transacoes
     .filter(t => t.tipo === 'RECEITA')
@@ -24,6 +31,9 @@ function Home() {
   //Pensar depois em uma refatoração para cada card de acordo com a aba (Receitas, despesas...) ter uma cor personalizada.
   return (
    <div className="home-content">
+     <div className="filtros-section">
+        <SeletorPeriodo/>
+      </div>
       {/* Seção de Cards */}
       <section className="summary-grid">
         <SummaryCard titulo="Receitas" valor={receitas} tipo="positivo" />

@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import {Modal} from '../../components/ui/Modal.jsx';
 import "./login.css";
 import { login } from "../../service/authService";
-import api from "../../service/api";
+import api from "../../service/api.js";
 
 const Login = () => {
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [senha, setSenha] = useState("");
     const [erros, setErros] = useState({});
+    const [entrando, setEntrando] = useState(false);
     const navigate = useNavigate();
 
     const fazerLogin = async (event) => {
@@ -16,9 +18,11 @@ const Login = () => {
         
         try {
 
-            const resposta = await login(email, password);
+            const resposta = await login(email, senha);
             localStorage.setItem('token', resposta.token);
+            setEntrando(true)
             navigate('/home');
+            
 
         } catch (erro) {
             const status = erro.response?.status;
@@ -30,19 +34,28 @@ const Login = () => {
                 setErros({servidor: "Erro interno de servidor."});
             }
             else{
-                setErros({geral: "Erro ao processar login - Contate o suporte"})
+                setErros({geral: "Erro ao processar login - Contate o suporte."})
             }
         }
     };
+
+    //Talvez eu use ou não...
+   const showEntrando = () =>   {
+    
+    if(entrando){
+        return <div className="entrando-mensagem">Entrando...</div>
+    }
+    return ""
+}
 
     return (
     <div className="container">
         <form className="login-form" onSubmit={fazerLogin}>
             <h2>Bem-vindo de volta</h2>
             <p className="subtitle">Insira seus dados para acessar o sistema</p>
-            
             {erros.geral && <div className="erro-mensagem">{erros.geral}</div>}
-
+            {erros.dados && <div className="erro-mensagem">{erros.dados}</div>}
+            {erros.servidor && <div className="erro-mensagem">{erros.servidor}</div>}
             <div className="form-group">
                 <label className="form-label">E-mail</label>
                 <input 
@@ -58,11 +71,10 @@ const Login = () => {
                 <input 
                     type="password" 
                     placeholder="••••••••"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)} 
+                    value={senha}
+                    onChange={(e) => setSenha(e.target.value)} 
                 />
             </div>
-
             <button type="submit" className="btn-primario">Entrar na conta</button>
         </form>
             <div className="links-uteis">

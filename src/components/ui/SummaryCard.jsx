@@ -1,4 +1,4 @@
-import { formatarMoeda } from "../utils/formatador";
+import { formatarMoeda } from "../../utils/formatador";
 
 export function SummaryCard({ titulo, valor, tipo }) {
   // Define a classe de cor baseada no tipo (positivo, negativo ou destaque)

@@ -1,9 +1,10 @@
-import { formatarMoeda, formatarData } from "../utils/formatador";
+import { formatarMoeda, formatarData } from "../../utils/formatador";
+import '../css/TransactionRow.css';
 
 export function TransactionRow({ transacao, onDeletar }) {
   return (
     <tr>
-      <td>{formatarData(transacao.data)}</td>
+      <td>{formatarData(transacao.dataTransacao)}</td>
       <td>{transacao.descricao}</td>
       <td>
         <span className={`tag-categoria ${transacao.categoria.toLowerCase()}`}>
@@ -11,8 +12,10 @@ export function TransactionRow({ transacao, onDeletar }) {
         </span>
       </td>
       <td className={transacao.tipo === 'RECEITA' ? 'positivo' : 'negativo'}>
-        {transacao.tipo === 'RECEITA' ? '+ ' : '- '}
-        {formatarMoeda(transacao.valor)}
+         {formatarMoeda(transacao.valor)}
+      </td>
+      <td className="metodo-pagamento">
+        {transacao.metodoPagamento}
       </td>
       <td>
         <button className="btn-delete" onClick={onDeletar}>Excluir</button>

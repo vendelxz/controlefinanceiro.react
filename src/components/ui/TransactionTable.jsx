@@ -10,6 +10,7 @@ export function TransactionTable({ listaTransacoes, onDeletar }) {
             <th>Descrição</th>
             <th>Categoria</th>
             <th>Valor</th>
+            <th>Forma de Pagamento</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -22,7 +23,7 @@ export function TransactionTable({ listaTransacoes, onDeletar }) {
             
           ) : (
             <tr>
-              <td colSpan="5" style={{ textAlign: 'center', padding: '2rem' }}>
+              <td colSpan="6" style={{ textAlign: 'center', padding: '2rem' }}>
                 Nenhuma transação encontrada para este período.
               </td>
             </tr>
