@@ -2,6 +2,8 @@ import { CardRelatorio } from "../../components/ui/CardRelatorio";
 import { SeletorPeriodo } from "../../components/ui/SeletorPeriodo";
 import { Modal } from "../../components/ui/Modal";
 import { getRelatorioDownload, enviarRelatorioEmail } from "../../service/relatorioService";
+import  IconePDF from '../../assets/download.svg';
+import  IconeEmail from '../../assets/envelope.svg';
 import { useTransacoes } from "../../hooks/useTransacoes";
 import { useState } from "react";
 import './relatorios.css';
@@ -106,7 +108,7 @@ function Relatorios() {
             />
             <div className="relatorios-cards">
                 <CardRelatorio
-                    icone=""
+                    icone={<img src={IconePDF} alt="PDF" width={22} height={22} />}
                     titulo="Download PDF"
                     descricao="Faça um download em PDF do seu relatório direto no site."
                     textoBotao="Baixar relatório"
@@ -115,7 +117,7 @@ function Relatorios() {
                 </CardRelatorio>
 
                 <CardRelatorio
-                    icone=""
+                    icone={<img src={IconeEmail} alt="E-mail" width={22} height={22} />}
                     titulo="Enviar por e-mail"
                     descricao="Envie o seu relatório financeiro mensal para seu e-mail cadastrado."
                     textoBotao="Enviar por email"
