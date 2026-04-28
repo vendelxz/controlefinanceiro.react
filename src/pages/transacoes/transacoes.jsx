@@ -3,16 +3,17 @@ import { TransactionTable } from '../../components/ui/TransactionTable';
 import { useTransacoes } from '../../hooks/useTransacoes';
 import { criarTransacao } from '../../service/transacoesService';
 import { deletarTransacao } from '../../service/transacoesService';
-import {SeletorPeriodo} from '../../components/ui/SeletorPeriodo';
+import SeletorPeriodo from '../../components/ui/SeletorPeriodo';
+import { usePeriodo } from '../../contexts/PeriodoContext';
 import { AddTransaction } from '../../components/ui/addTransaction';
 import {Modal} from '../../components/ui/Modal'
 import './transacoes.css'; 
 
 function Transacoes() {
 
-  const hoje = new Date();
-  const [mes, setMes] = useState(hoje.getMonth() + 1);
-  const [ano, setAno] = useState(hoje.getFullYear());
+  const {mes, ano} = usePeriodo();
+  
+  
   const [modalAberto, setModalAberto] = useState(false);
   const [errosLocal, setErrosLocal] = useState({});
   const [sucesso, setSucesso] = useState(false);
@@ -89,12 +90,7 @@ function Transacoes() {
       </div>
 
       <div className="filtros-section">
-       <SeletorPeriodo 
-       mes={mes} 
-       ano={ano} 
-       onMesChange={setMes} 
-       onAnoChange={setAno} 
-       />
+       <SeletorPeriodo/>
       </div>
 
       <TransactionTable listaTransacoes={transacoes} onDeletar={handleDeletar} />

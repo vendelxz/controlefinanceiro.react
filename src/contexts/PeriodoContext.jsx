@@ -3,7 +3,7 @@ import { useState, useContext, createContext } from "react";
 const PeriodoContext = createContext();
 
 export function PeriodoProvider({children}){
-const [mes, setMes] = useState(new Date().getMonth + 1);
+const [mes, setMes] = useState(new Date().getMonth() + 1);
 const [ano, setAno] = useState(new Date().getFullYear());
 
 return(<PeriodoContext.Provider value={{ mes, setMes, ano, setAno }}>

@@ -1,18 +1,19 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SummaryCard } from '../../components/ui/SummaryCard'
-import {SeletorPeriodo} from '../../components/ui/SeletorPeriodo'
+import SeletorPeriodo from '../../components/ui/SeletorPeriodo'
 import { useTransacoes } from '../../hooks/useTransacoes.js'
 import Transacoes from '../transacoes/transacoes.jsx'
+import {usePeriodo} from '../../contexts/PeriodoContext.jsx'
 import { ANOS, MESES } from '../../utils/filtroDados';
 import './home.css'
 
 function Home() {
-   const hoje = new Date();
-   const [mes, setMes] = useState(hoje.getMonth() + 1);
-   const [ano, setAno] = useState(hoje.getFullYear());
+  
+  const {mes, ano} = usePeriodo();
 
   const { transacoes } = useTransacoes(mes, ano);
+
 
 
   //Para testar apenas...
@@ -31,12 +32,7 @@ function Home() {
   return (
    <div className="home-content">
      <div className="filtros-section">
-        <SeletorPeriodo
-            mes={mes}
-            ano={ano}
-            onMesChange={setMes}
-            onAnoChange={setAno}
-        />
+        <SeletorPeriodo/>
       </div>
       {/* Seção de Cards */}
       <section className="summary-grid">

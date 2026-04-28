@@ -1,17 +1,18 @@
 import { CardRelatorio } from "../../components/ui/CardRelatorio";
-import { SeletorPeriodo } from "../../components/ui/SeletorPeriodo";
+import  SeletorPeriodo  from "../../components/ui/SeletorPeriodo";
 import { Modal } from "../../components/ui/Modal";
 import { getRelatorioDownload, enviarRelatorioEmail } from "../../service/relatorioService";
 import  IconePDF from '../../assets/download.svg';
 import  IconeEmail from '../../assets/envelope.svg';
 import { useTransacoes } from "../../hooks/useTransacoes";
+import { usePeriodo } from "../../contexts/PeriodoContext";
 import { useState } from "react";
 import './relatorios.css';
 
 function Relatorios() {
 
-    const [mes, setMes] = useState();
-    const [ano, setAno] = useState();
+    const {mes, ano} = usePeriodo();
+   
     const [erro, setErro] = useState({});
     const [sucesso, setSucesso] = useState(false);
 
@@ -100,12 +101,7 @@ function Relatorios() {
 
             <p>Selecione o período para gerar o relatório:</p>
 
-            <SeletorPeriodo
-                mes={mes}
-                onMesChange={setMes}
-                ano={ano}
-                onAnoChange={setAno}
-            />
+            <SeletorPeriodo />
             <div className="relatorios-cards">
                 <CardRelatorio
                     icone={<img src={IconePDF} alt="PDF" width={22} height={22} />}
