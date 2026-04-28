@@ -23,6 +23,7 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
     <PeriodoProvider>
       <Routes>
+         <Route path="/" element={<Navigate to="/auth/login" replace />} />
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/solicitar" element={<Solicitar />} />
         <Route path="/auth/registro" element={<Registro />} />
