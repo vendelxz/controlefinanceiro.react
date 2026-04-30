@@ -13,10 +13,12 @@ const Registro = () => {
     const [senha, setSenha] = useState("");
     const [confirmarSenha, setConfirmarSenha] = useState("");
     const [erros, setErros] = useState({});
+    const [cadastrando, setCadastrando] = useState(false);
     const [sucesso, setSucesso] = useState(false);
 
     const fazerRegistro = async (event) => {
         event.preventDefault();
+        setCadastrando(true);
 
         //Já acusa diretamente dentro do próprio React..
         if(senha !== confirmarSenha ){
@@ -111,7 +113,7 @@ const Registro = () => {
                         onChange={(e) => setConfirmarSenha(e.target.value)}
                     />
                 </div>
-                <button type="submit" className="btn-primario" onClick={fazerRegistro} disabled={sucesso} >{sucesso ? "Cadastrando...": "Cadastrar"}</button>
+                <button type="submit" className="btn-primario" onClick={fazerRegistro} disabled={cadastrando} >{cadastrando ? "Cadastrando...": "Cadastrar"}</button>
             </form>
             <div className="links-uteis">
                 <Link to="/auth/login">Já possui conta? Clique aqui</Link>
