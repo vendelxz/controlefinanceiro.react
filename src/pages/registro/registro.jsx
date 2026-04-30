@@ -54,7 +54,7 @@ const Registro = () => {
         const timer = setTimetout(() => navigate('/auth/login', 400));
         return () => clearTimeout(timer); //Fechar o componente se ele for quebrado antes..
     }
-   })
+   }, [sucesso]) //Para atualizar apenas se sucesso for alterado..
 
     return (
         <>
