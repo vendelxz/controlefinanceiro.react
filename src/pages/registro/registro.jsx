@@ -28,7 +28,6 @@ const Registro = () => {
             //A API faz verificações de senhas diferentes, mas ainda precisa de um DTO completo com o confirmarSenha.
             const resposta = await registro(nome, email, senha, confirmarSenha);
             setSucesso(true);//Mostrar uma mensagem de sucesso...
-            navigate('/auth/login')
 
         } catch (erro) {
             const status = erro.response?.status;
