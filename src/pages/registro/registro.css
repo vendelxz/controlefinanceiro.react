@@ -93,6 +93,12 @@ p.subtitle {
     transform: translateY(0);
 }
 
+.btn-primario:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
 .erro-mensagem {
     background-color: #fef2f2;
     color: #b91c1c;
