@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import api from "../../service/api";
+import { Modal } from "../../components/ui/Modal";
 import { registro } from "../../service/authService";
 import "./registro.css";
 
@@ -45,9 +45,27 @@ const Registro = () => {
 
     };
 
-   if (sucesso) return <p className="p-sucesso">Registrado, redirecionando para login...</p>
+   //if (sucesso) return <p className="p-sucesso">Registrado, redirecionando para login...</p>
+
+   //useEffect para validar e aparecer um Modal quando um usuário se registra corretamente...
+
+   useEffect(() => {
+    if(sucesso){
+        const timer = setTimetout(() => navigate('/auth/login', 400));
+        return () => clearTimeout(timer); //Fechar o componente se ele for quebrado antes..
+    }
+   })
 
     return (
+        <>
+        <Modal 
+        isOpen={sucesso}
+        onClose={null}
+        titulo="Registro feito com sucesso"
+        children="Seu registro foi concluído e agora será redirecionado para página de login"
+        >
+        </Modal>
+        
         <div className="container">
             <form className="register-form" onSubmit={fazerRegistro}>
                 <h2>Cadastro de usuário</h2>
@@ -93,12 +111,13 @@ const Registro = () => {
                         onChange={(e) => setConfirmarSenha(e.target.value)}
                     />
                 </div>
-                <button type="submit" className="btn-primario" onClick={fazerRegistro}>Cadastrar</button>
+                <button type="submit" className="btn-primario" onClick={fazerRegistro} disabled={sucesso} >{sucesso ? "Cadastrando...": "Cadastrar"}</button>
             </form>
             <div className="links-uteis">
                 <Link to="/auth/login">Já possui conta? Clique aqui</Link>
             </div>
         </div>
+        </>
     )
 }
 export default Registro;
