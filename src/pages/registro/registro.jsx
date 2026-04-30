@@ -43,6 +43,9 @@ const Registro = () => {
                setErros({geral: "Erro ao cadastrar usuário - Contate o suporte."});
             }
         }
+        finally{
+            setCadastrando(false);
+        }
 
     };
 
