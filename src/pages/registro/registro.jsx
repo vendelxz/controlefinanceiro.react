@@ -51,7 +51,7 @@ const Registro = () => {
 
    useEffect(() => {
     if(sucesso){
-        const timer = setTimetout(() => navigate('/auth/login', 400));
+        const timer = setTimeout(() => navigate('/auth/login'), 4000);
         return () => clearTimeout(timer); //Fechar o componente se ele for quebrado antes..
     }
    }, [sucesso]) //Para atualizar apenas se sucesso for alterado..
