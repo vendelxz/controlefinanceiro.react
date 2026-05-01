@@ -23,6 +23,7 @@ const Registro = () => {
         //Já acusa diretamente dentro do próprio React..
         if(senha !== confirmarSenha ){
             setErros({dados: "Senhas estão diferentes, corrija."});
+            setCadastrando(false);
             return;
         }
 
