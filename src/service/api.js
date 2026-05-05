@@ -6,7 +6,7 @@ const api = axios.create({
 
 api.interceptors.request.use((config) => {
     const token = localStorage.getItem('token');
-    if (token && token !== 'null' && config.url.includes('/auth/')) { //Configurar para não enviar o token em páginas de Auth.
+    if (token && token !== 'null') { //Auth não pode ser bloqueada pois precisa setar o token para fazer o fetch assim que entra na home 
         config.headers.Authorization = `Bearer ${token}`;
     }
     return config;

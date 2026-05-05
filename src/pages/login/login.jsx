@@ -34,7 +34,7 @@ const Login = () => {
                 setErros({ servidor: "Erro interno de servidor." });
             }
             else {
-                setErros({ geral: "Erro ao processar login - Contate o suporte." })
+                setErros({ geral: "Erro ao processar login - tente novamente e caso haja falhas - Contate o suporte." })
             }
         }
 
