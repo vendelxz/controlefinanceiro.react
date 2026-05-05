@@ -6,7 +6,7 @@ const api = axios.create({
 
 api.interceptors.request.use((config) => {
     const token = localStorage.getItem('token');
-    if (token && token !== 'null' && config.url.includes('/auth/') ) { //Configurar para não enviar o token em páginas de Auth.
+    if (token && token !== 'null' && config.url.includes('/auth/')) { //Configurar para não enviar o token em páginas de Auth.
         config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
@@ -20,9 +20,11 @@ api.interceptors.response.use(
             window.location.pathname.includes(p)
         );
 
-        if ((status === 401 || status === 403 ) && !isAuthPage) {
+        if ((status === 401 || status === 403)) {
             localStorage.removeItem('token');
-            window.location.href = '/auth/login';
+            if (!isAuthPage) {
+                window.location.href = '/auth/login';
+            }
         }
 
         return Promise.reject(erro);
