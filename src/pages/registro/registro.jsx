@@ -13,14 +13,17 @@ const Registro = () => {
     const [senha, setSenha] = useState("");
     const [confirmarSenha, setConfirmarSenha] = useState("");
     const [erros, setErros] = useState({});
+    const [cadastrando, setCadastrando] = useState(false);
     const [sucesso, setSucesso] = useState(false);
 
     const fazerRegistro = async (event) => {
         event.preventDefault();
+        setCadastrando(true);
 
         //Já acusa diretamente dentro do próprio React..
         if(senha !== confirmarSenha ){
             setErros({dados: "Senhas estão diferentes, corrija."});
+            setCadastrando(false);
             return;
         }
 
@@ -28,12 +31,11 @@ const Registro = () => {
             //A API faz verificações de senhas diferentes, mas ainda precisa de um DTO completo com o confirmarSenha.
             const resposta = await registro(nome, email, senha, confirmarSenha);
             setSucesso(true);//Mostrar uma mensagem de sucesso...
-            navigate('/auth/login')
 
         } catch (erro) {
             const status = erro.response?.status;
             if(status === 400){
-                setErros({dados: "Dados incorretos, cheque e preencha novamente."});
+                setErros({dados: "Senha precisa ter no mínimo 8 caracteres, uma letra maiúscula e um caractere especial"});
             }
             else if(status === 500){
                setErros({servidor: "Erro interno de servidor."}); 
@@ -41,6 +43,9 @@ const Registro = () => {
            else{
                setErros({geral: "Erro ao cadastrar usuário - Contate o suporte."});
             }
+        }
+        finally{
+            setCadastrando(false);
         }
 
     };
@@ -51,10 +56,10 @@ const Registro = () => {
 
    useEffect(() => {
     if(sucesso){
-        const timer = setTimetout(() => navigate('/auth/login', 400));
+        const timer = setTimeout(() => navigate('/auth/login'), 4000);
         return () => clearTimeout(timer); //Fechar o componente se ele for quebrado antes..
     }
-   })
+   }, [sucesso]) //Para atualizar apenas se sucesso for alterado..
 
     return (
         <>
@@ -71,6 +76,7 @@ const Registro = () => {
                 <h2>Cadastro de usuário</h2>
                 <p className="subtitle">Crie sua conta para continuar</p>
                 {erros.geral && <div className="erro-mensagem">{erros.geral}</div>}
+                {erros.dados && <div className="erro-mensagem">{erros.dados}</div>}
                 <div className="form-group">
                     <label className="form-label">Nome</label>
                     <input
@@ -111,7 +117,7 @@ const Registro = () => {
                         onChange={(e) => setConfirmarSenha(e.target.value)}
                     />
                 </div>
-                <button type="submit" className="btn-primario" onClick={fazerRegistro} disabled={sucesso} >{sucesso ? "Cadastrando...": "Cadastrar"}</button>
+                <button type="submit" className="btn-primario" onClick={fazerRegistro} disabled={cadastrando} >{cadastrando ? "Cadastrando...": "Cadastrar"}</button>
             </form>
             <div className="links-uteis">
                 <Link to="/auth/login">Já possui conta? Clique aqui</Link>

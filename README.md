@@ -1,11 +1,7 @@
 # Finance Control — React
 Sistema web de controle financeiro pessoal construído com React. Versão reimaginada do [Finance Control Vanilla JS](https://github.com/vendelxz/finance.control), mantendo o mesmo backend em Java Spring Boot.
 
-> ⚠️ Em desenvolvimento — estrutura base configurada
-
-> ⚠️ CORS Desabilitado - Ainda em testes
-
-## Funcionalidades 
+## Funcionalidades Ativas
 - [x] Autenticação com JWT
 - [x] Cadastro de receitas e despesas
 - [x] Balanceamento mensal

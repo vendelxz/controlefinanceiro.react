@@ -6,7 +6,7 @@ const api = axios.create({
 
 api.interceptors.request.use((config) => {
     const token = localStorage.getItem('token');
-    if (token && token !== 'null') {
+    if (token && token !== 'null') { //Auth não pode ser bloqueada pois precisa setar o token para fazer o fetch assim que entra na home 
         config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
@@ -16,13 +16,15 @@ api.interceptors.response.use(
     (resposta) => resposta,
     (erro) => {
         const status = erro.response?.status;
-        const isAuthPage = ['/login', '/registro'].some(p =>
+        const isAuthPage = ['/auth/login', '/auth/registro'].some(p =>
             window.location.pathname.includes(p)
         );
 
-        if ((status === 401 ) && !isAuthPage) {
+        if ((status === 401 || status === 403)) {
             localStorage.removeItem('token');
-            window.location.href = '/auth/login';
+            if (!isAuthPage) {
+                window.location.href = '/auth/login';
+            }
         }
 
         return Promise.reject(erro);
