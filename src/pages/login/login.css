@@ -1,7 +1,7 @@
 :root {
   --primary: #092fe9; 
   --primary-hover: #001db1;
-  --bg-gradient: linear-gradient(135deg, #d2d3d8 0%, #b8bac2 100%);
+  --bg-gradient: linear-gradient(135deg, #1f2020 0%, #a28db3 100%);
   --text-main: #1f2937;
 }
 
@@ -10,33 +10,34 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: var(--bg-gradient); 
+    background: radial-gradient(circle at top right, #1e1b4b 0%, #110f18 100%);
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 .login-form {
-    display: flex;
+   display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 400px;
     padding: 2.5rem;
-    background: rgba(255, 255, 255, 0.95); 
+    background: #1a1625; /* var(--bg-card) */
+    border: 1px solid #2e2643;
     border-radius: 1.5rem;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+
 }
 
 h2 {
     margin-bottom: 0.5rem;
-    color: var(--text-main);
+    color: #7603b9 !important;
     text-align: center;
     font-size: 1.875rem;
     font-weight: 800;
-    letter-spacing: -0.025em;
 }
 
 p.subtitle {
     text-align: center;
-    color: #6b7280;
+    color: #7603b9 !important;
     margin-bottom: 2rem;
     font-size: 0.875rem;
 }
@@ -50,27 +51,27 @@ p.subtitle {
 .form-label {
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #374151;
+    color: #f3f4f6;
     font-size: 0.875rem;
 }
-
 .login-form input {
-    padding: 0.75rem 1rem;
-    border: 1px solid #d1d5db;
+  padding: 0.75rem 1rem;
+    border: 1px solid #2e2643;
     border-radius: 0.5rem;
-    background-color: #fff;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #241e33;
+    color: #f3f4f6;
+    transition: all 0.2s;
     font-size: 1rem;
 }
 
 .login-form input:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+   border-color: #747bff;
+    box-shadow: 0 0 0 4px rgba(116, 123, 255, 0.15);
     outline: none;
 }
 
 .btn-primario {
-    background-color: #092fe9;
+  background-color: #7603b9 !important;
     color: #fff;
     padding: 0.75rem;
     border: none;
@@ -78,13 +79,11 @@ p.subtitle {
     cursor: pointer;
     font-weight: 600;
     font-size: 1rem;
-    margin-top: 1rem;
     transition: all 0.2s;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primario:hover {
-    background-color:¨#092fe9 ;
+    background-color:¨#7603b9 ;
     transform: translateY(-1px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
@@ -100,13 +99,13 @@ p.subtitle {
 }
 
 .erro-mensagem {
-    background-color: #fef2f2;
+    background-color: #cb9de6 !important; 
     color: #b91c1c;
     padding: 0.75rem;
     border-radius: 0.5rem;
     margin-bottom: 1.5rem;
     font-size: 0.875rem;
-    border: 1px solid #fee2e2;
+    border: 1px solid #7603b9 !important;
     text-align: center;
 }
 
@@ -122,7 +121,7 @@ p.subtitle {
 }
 
 .links-uteis {
-    color: #092fe9;
+    color: #7603b9 !important;
     margin-top: 1.5rem;
     display: flex;          
     flex-direction: column; 
@@ -131,12 +130,7 @@ p.subtitle {
 }
 
 .links-uteis a {
-    display: inline-block; 
-    text-decoration: none;  
-    color: #092fe9 !important;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.2s;
+    color: #7603b9 !important;
 }
 
 .links-uteis a:hover {

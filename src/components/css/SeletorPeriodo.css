@@ -1,15 +1,65 @@
-.card-select {
+.seletor-periodo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgba(24, 24, 28, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     padding: 0.5rem 1rem;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
-    color: #374151;
-    background-color: #fff;
-    cursor: pointer;
-    outline: none;
-    transition: border-color 0.2s;
+    border-radius: 1rem;
+    border: 1px solid #25242a;
+    width: fit-content;
 }
 
-.card-select:focus {
-    border-color: #092fe9;
+.btn-seta {
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-seta:hover {
+    background-color: #25242a;
+    color: #967bb6;
+}
+
+.periodo-display {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f3f4f6;
+    min-width: 120px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.btn-tipo-periodo {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: #9ca3af;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-tipo-periodo:hover {
+    color: #f3f4f6;
+    background-color: #25242a;
+}
+
+.btn-tipo-periodo.ativo {
+    background: linear-gradient(135deg, #25242a 0%, #967bb6 100%);
+    color: #ffffff !important;
+    border-color: #967bb6;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(150, 123, 182, 0.2);
 }

@@ -1,20 +1,46 @@
- td.positivo{
-    color: green !important;
+tr {
+    border-bottom: 1px solid #25242a;
 }
 
-td.negativo{
-    color: red !important;
+td {
+    color: #f3f4f6 !important;
+}
+
+td.positivo {
+    color: #34d399 !important;
+    font-weight: 600;
+}
+
+td.negativo {
+    color: #f87171 !important;
+    font-weight: 600;
 }
 
 .btn-delete {
     background-color: transparent;
     border: none;
-    color: #fd0303;
+    color: #f87171;
     cursor: pointer;
     font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.btn-delete:hover {
+    color: #ef4444;
 }
 
 .metodo-pagamento {
     font-style: italic !important;
-    color: #4b4545 !important;
+    color: white !important;
+}
+
+.tag-categoria {
+    background-color: #25242a;
+    color: #967bb6;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
 }

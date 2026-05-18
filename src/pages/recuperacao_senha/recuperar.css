@@ -1,28 +1,28 @@
-:root {
-  --primary: #092fe9; 
-  --primary-hover: #001db1;
-  --bg-gradient: linear-gradient(135deg, #d2d3d8 0%, #b8bac2 100%);
-  --text-main: #1f2937;
-}
 
-.container {
+
+.container {    
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: var(--bg-gradient); 
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: var(--bg-gradient);
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .recuperar-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 400px;
-    padding: 2.5rem;
-    background: rgba(255, 255, 255, 0.95); 
-    border-radius: 1.5rem;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+   display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  padding: 2.5rem;
+  background: #1a1625; /* var(--bg-card) */
+  border: 1px solid #2e2643;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
@@ -48,29 +48,30 @@ p.subtitle {
 }
 
 .form-label {
-    margin-bottom: 0.5rem;
+   margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #374151;
+    color: #f3f4f6;
     font-size: 0.875rem;
 }
 
 .recuperar-form input {
-    padding: 0.75rem 1rem;
-    border: 1px solid #d1d5db;
+  padding: 0.75rem 1rem;
+    border: 1px solid #2e2643;
     border-radius: 0.5rem;
-    background-color: #fff;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #241e33;
+    color: #f3f4f6;
+    transition: all 0.2s;
     font-size: 1rem;
 }
 
 .recuperar-form input:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+   border-color: #747bff;
+    box-shadow: 0 0 0 4px rgba(116, 123, 255, 0.15);
     outline: none;
 }
 
 .btn-primario {
-    background-color: #092fe9;
+    background-color: #7603b9 !important;
     color: #fff;
     padding: 0.75rem;
     border: none;
@@ -78,13 +79,11 @@ p.subtitle {
     cursor: pointer;
     font-weight: 600;
     font-size: 1rem;
-    margin-top: 1rem;
     transition: all 0.2s;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primario:hover {
-    background-color: #001db1;
+   background-color:¨#7603b9 ;
     transform: translateY(-1px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
@@ -94,30 +93,30 @@ p.subtitle {
 }
 
 .erro-mensagem {
-    background-color: #fef2f2;
+   background-color: #cb9de6 !important; 
     color: #b91c1c;
     padding: 0.75rem;
     border-radius: 0.5rem;
     margin-bottom: 1.5rem;
     font-size: 0.875rem;
-    border: 1px solid #fee2e2;
+    border: 1px solid #7603b9 !important;
     text-align: center;
 }
 
 
 .links-uteis {
-    color: #092fe9;
+   color: #7603b9 !important;
     margin-top: 1.5rem;
     display: flex;          
     flex-direction: column; 
     gap: 0.75rem;           
-    align-items: center;    
+    align-items: center;       
 }
 
 .links-uteis a {
     display: inline-block; 
     text-decoration: none;  
-    color: #092fe9 !important;
+    color: #7603b9 !important;
     font-size: 0.9rem;
     font-weight: 500;
     transition: all 0.2s;

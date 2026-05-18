@@ -82,11 +82,11 @@ const Login = () => {
                 <button type="submit" className="btn-primario" disabled={entrando}>
                     {entrando ? "Entrando..." : "Entrar na conta"}
                 </button>
-            </form>
-            <div className="links-uteis">
+                 <div className="links-uteis">
                 <Link to="/auth/solicitar">Esqueceu sua senha?</Link>
                 <Link to="/auth/registro">Não tem uma conta? Cadastre-se</Link>
             </div>
+            </form>
         </div>
     );
 };

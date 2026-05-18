@@ -118,10 +118,10 @@ const Registro = () => {
                     />
                 </div>
                 <button type="submit" className="btn-primario" onClick={fazerRegistro} disabled={cadastrando} >{cadastrando ? "Cadastrando...": "Cadastrar"}</button>
-            </form>
-            <div className="links-uteis">
+                 <div className="links-uteis">
                 <Link to="/auth/login">Já possui conta? Clique aqui</Link>
             </div>
+            </form>
         </div>
         </>
     )
