@@ -1,60 +1,60 @@
-#root{
+#root {
   margin: 0;
   padding: 0;
 }
-.container{
+
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-
 }
 
 .home-content {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .home-header {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .summary-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px; 
-    width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 80%;
 }
 
 .card {
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border: 0.5px solid #092fe9;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  background: #18181c;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border: 1px solid #25242a;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .card h3 {
-    font-size: 0.9rem;
-    color: #000000;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font: sans serif;
+  font-size: 0.9rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: sans-serif;
 }
 
 .valor {
-    font-size: 1.5rem;
-    font-weight: 700;
-    font-style: italic;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-style: italic;
 }
 
-.background{
+.background {
   position: fixed;
   top: 0;
   left: 0;
@@ -64,44 +64,48 @@
   background-position: center;
   z-index: -1;
 }
-.btn-clicar{
+
+.btn-clicar {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #007bff;
-  color: white;
+  background-color: #967bb6;
+  color: #18181c;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  text-shadow: #007bff 1px 1px 2px;
-  text-shadow: #007bff 1px 1px 2px;
+  font-weight: 600;
 }
 
-.valor.positivo { color: #10b981; } 
+.valor.positivo {
+  color: #34d399;
+}
 
-.valor.negativo { color: #ef4444; }
- 
-.valor.destaque { color: #092fe9; } 
+.valor.negativo {
+  color: #f87171;
+}
+
+.valor.destaque {
+  color: #967bb6;
+}
 
 .filtros-section {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .card-select {
-    padding: 0.5rem 1rem;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
-    color: #374151;
-    background-color: #fff;
-    cursor: pointer;
-    outline: none;
-    transition: border-color 0.2s;
+  padding: 0.5rem 1rem;
+  border: 1px solid #25242a;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #f3f4f6;
+  background-color: #25242a;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
 }
 
 .card-select:focus {
-    border-color: #092fe9;
+  border-color: #967bb6;
 }
-
-

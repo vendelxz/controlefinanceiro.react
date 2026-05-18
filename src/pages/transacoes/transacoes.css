@@ -1,8 +1,9 @@
 .transacoes-section {
-    background: white;
+    background: #18181c;
     padding: 1.5rem;
     border-radius: 1rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #25242a;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .header-tabela {
@@ -19,6 +20,14 @@
     margin-bottom: 1.5rem;
 }
 
+.header-pagina h2 {
+    color: #f3f4f6 !important;
+}
+
+.transacoes-container p {
+    color: #9ca3af;
+}
+
 .tabela-container {
     overflow-x: auto; 
 }
@@ -31,17 +40,18 @@
 
 .tabela-financeira th {
     padding: 12px;
-    border-bottom: 2px solid #f3f4f6;
-    color: #6b7280;
+    border-bottom: 2px solid #25242a;
+    color: #967bb6;
     font-size: 0.85rem;
     text-transform: uppercase;
+    font-weight: 600;
 }
 
 .tabela-financeira td {
     padding: 16px 12px;
-    border-bottom: 1px solid #f3f4f6;
+    border-bottom: 1px solid #25242a;
     font-size: 0.95rem;
-    color: #374151;
+    color: #f3f4f6;
 }
 
 .btn-edit, .btn-delete {
@@ -52,47 +62,40 @@
     font-size: 1.1rem;
 }
 
-.btn-transacao{
-    background-color: #092fe9;;
-    color: #fff;
+.btn-transacao {
+    background-color: #967bb6;
+    color: #18181c;
     padding: 0.75rem;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 0.875rem;
     margin-top: 1rem;
     transition: all 0.2s;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .btn-transacao:hover {
-    background-color:¨#092fe9 ;
+    background-color: #7a5fa3;
     transform: translateY(-1px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
 }
 
 .btn-transacao:active {
     transform: translateY(0);
 }
 
-.h2-transactions{
+.h2-transactions {
     font-size: 1.5rem;
-    color: #092fe9;
-    border: 1px solid black;
+    color: #967bb6;
+    border: 1px solid #25242a;
     margin-bottom: 0.5rem;
-
-    /* A configuração que "mata" o problema: */
     width: fit-content; 
-    
-    /* Respiro interno para o texto não encostar na linha */
     padding: 2px 10px;
-    
-    /* Garante que ele se comporte como título (sozinho na linha) */
     display: block;
 }
 
-/* Filtros */
 .filtros-section {
     display: flex;
     gap: 1rem;
@@ -101,21 +104,20 @@
 
 .card-select {
     padding: 0.5rem 1rem;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #25242a;
     border-radius: 0.5rem;
     font-size: 0.875rem;
-    color: #374151;
-    background-color: #fff;
+    color: #f3f4f6;
+    background-color: #25242a;
     cursor: pointer;
     outline: none;
     transition: border-color 0.2s;
 }
 
 .card-select:focus {
-    border-color: #092fe9;
+    border-color: #967bb6;
 }
 
-/* Formulário de adicionar transação */
 .add-transaction-form {
     display: flex;
     flex-direction: column;
@@ -125,17 +127,18 @@
 .add-transaction-form input,
 .add-transaction-form select {
     padding: 0.6rem 0.75rem;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #25242a;
     border-radius: 0.5rem;
     font-size: 0.875rem;
-    color: #374151;
+    color: #f3f4f6;
+    background-color: #25242a;
     outline: none;
     transition: border-color 0.2s;
 }
 
 .add-transaction-form input:focus,
 .add-transaction-form select:focus {
-    border-color: #092fe9;
+    border-color: #967bb6;
 }
 
 .form-acoes {
@@ -155,16 +158,22 @@
 }
 
 .form-acoes button:first-child {
-    background-color: #f3f4f6;
-    color: #374151;
+    background-color: #25242a;
+    color: #9ca3af;
+}
+
+.form-acoes button:first-child:hover {
+    background-color: #2e2d35;
+    color: #f3f4f6;
 }
 
 .form-acoes button:last-child {
-    background-color: #092fe9;
-    color: #fff;
+    background-color: #967bb6;
+    color: #18181c;
+    font-weight: 600;
 }
 
-.form-acoes button:hover {
-    opacity: 0.9;
+.form-acoes button:last-child:hover {
+    background-color: #7a5fa3;
     transform: translateY(-1px);
 }
