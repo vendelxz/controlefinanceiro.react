@@ -41,7 +41,7 @@
 .tabela-financeira th {
     padding: 12px;
     border-bottom: 2px solid #25242a;
-    color: #967bb6;
+    color: #ffffff;
     font-size: 0.85rem;
     text-transform: uppercase;
     font-weight: 600;
@@ -64,7 +64,7 @@
 
 .btn-transacao {
     background-color: #967bb6;
-    color: #18181c;
+    color: #ffffff;
     padding: 0.75rem;
     border: none;
     border-radius: 0.5rem;

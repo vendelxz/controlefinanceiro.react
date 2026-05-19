@@ -68,6 +68,8 @@ function Transacoes() {
 
 
   //Será necessário um useEffect para o carregando da página...?
+
+  //Na table apenas possui erros gerais e de servidor para o usuário saber antes mesmo de cadastrar ou deletar algo...
  
   return (
 
@@ -95,7 +97,6 @@ function Transacoes() {
 
       <TransactionTable listaTransacoes={transacoes} onDeletar={handleDeletar} />
        {errosLocal.geral && <div className="erro-mensagem">{errosLocal.geral}</div>}
-       {errosLocal.dados && <div className="erro-mensagem">{errosLocal.dados}</div>}
        {errosLocal.servidor && <div className="erro-mensagem">{errosLocal.servidor}</div>}
 
       <Modal isOpen={modalAberto} onClose={() => setModalAberto(false)} titulo="Nova Transação">
