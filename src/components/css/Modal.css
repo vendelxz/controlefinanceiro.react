@@ -50,6 +50,7 @@
 .modal-body {
     display: flex;
     flex-direction: column;
+    color: #ffffff;
     gap: 1rem;
 }
 
