@@ -1,6 +1,6 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { GraphicsUtils } from '../../utils/GraphicsUtils';
+import { GraphicsUtils } from '../../../utils/GraphicsTypeUtils';;
 
 export default function CardGraficoBarra({ transacoesFiltradas }) {
   const dados = GraphicsUtils.obterDadosComparativos(transacoesFiltradas);

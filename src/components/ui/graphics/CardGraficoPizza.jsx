@@ -1,7 +1,7 @@
 import React from 'react';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { GraphicsUtils } from '../../utils/GraphicsUtils';
-import { GraphicsTransactionsUtils } from '../../utils/GraphicsTransactionsUtils';
+import { GraphicsUtils } from '../../../utils/GraphicsTypeUtils';
+import { GraphicsTransactionsUtils } from '../../../utils/GraphicsTransactionsUtils';
 
 export default function CardGraficoPizza({ transacoesFiltradas, filtroTipo }) {
   const dadosBrutos = filtroTipo === 'RECEITA' 

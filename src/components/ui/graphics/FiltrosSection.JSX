@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraphicsTransactionsUtils } from '../../utils/GraphicsTransactionsUtils';
+import { GraphicsTransactionsUtils } from '../../../utils/GraphicsTransactionsUtils';
 
 export default function FiltrosSection({
   filtroTipo,
