@@ -8,7 +8,7 @@ Sistema web de controle financeiro pessoal construído com React. Versão reimag
 - [x] Envio de e-mails via SMTP
 - [x] Recuperação de senha
 - [x] Geração de relatórios em PDF
-- [ ] Dark mode
+- [x] Gráficos personalizados para ánalise
 
 ## Stack
 | Camada | Tecnologia |
