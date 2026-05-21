@@ -36,6 +36,15 @@ export function Sidebar() {
           />
           Relatórios
         </NavLink>
+
+        <NavLink to="/home/graficos" className={({ isActive }) => isActive ? "nav-btn ativo" : "nav-btn"}>
+          <img 
+            src="https://cdn-icons-png.flaticon.com/128/3916/3916730.png" 
+            alt="Gráficos" 
+            className="nav-icon" 
+          />
+          Gráficos
+        </NavLink>
       </nav>
 
       <div className="sidebar-footer">

@@ -6,7 +6,7 @@ export function Topbar() {
   return (
     <header className="topbar">
       <div className="topbar-left">
-        <h1 id="titulo-pagina">Análise do Mês</h1>
+        <h1 id="titulo-pagina">Análise e gerenciamento de finanças</h1>
       </div>
       
       <div className="topbar-actions">

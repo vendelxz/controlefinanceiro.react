@@ -1,0 +1,53 @@
+.graphics-page-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.relatorios-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.relatorios-header h2 {
+    font-size: 1.5rem;
+    color: #f3f4f6 !important;
+    font-weight: 700;
+}
+
+.graphics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .graphics-page-container {
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .relatorios-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .graphics-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .filtros-periodo{   
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    }
+}

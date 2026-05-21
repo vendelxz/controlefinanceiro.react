@@ -20,7 +20,7 @@ api.interceptors.response.use(
             window.location.pathname.includes(p)
         );
 
-        if ((status === 401 || status === 403)) {
+        if ((status === 401 || status === 0)) {
             localStorage.removeItem('token');
             if (!isAuthPage) {
                 window.location.href = '/auth/login';

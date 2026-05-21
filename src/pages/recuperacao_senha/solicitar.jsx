@@ -75,10 +75,10 @@ function Solicitar() {
                     <button type="submit" className="enviar"
                         onClick={mandarSolicitacao}
                     >Enviar</button>
-                </form>
-                <div className="links-uteis">
+                     <div className="links-uteis">
                     <Link to="/auth/login">Faça login aqui</Link>
                 </div>
+                </form>
             </div>
         </>
     )
