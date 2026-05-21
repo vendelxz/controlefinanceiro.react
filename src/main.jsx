@@ -15,7 +15,7 @@ import Login from '../src/pages/login/login.jsx'
 import Registro from '../src/pages/registro/registro.jsx'
 import Solicitar from '../src/pages/recuperacao_senha/solicitar.jsx'
 import Recuperar from '../src/pages/recuperacao_senha/recuperar.jsx'
-import Graphics from './pages/graphics/graphics.jsx'
+import Graficos from './pages/graphics/graficos.jsx'
 import { PeriodoProvider } from './contexts/PeriodoContext.jsx'
 import {MainLayout} from './components/layout/MainLayout'
 
@@ -34,7 +34,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="visao-geral" element={<Home />} />
           <Route path="transacoes" element={<Transacoes />} />
           <Route path="relatorios" element={<Relatorios />} />
-          <Route path="graficos" element={<Graphics />} />
+          <Route path="graficos" element={<Graficos />} />
         </Route>
       </Routes>
       </PeriodoProvider>
